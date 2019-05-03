@@ -28,6 +28,9 @@
 */
 
 // Code Here 
+function first(arr,callback){
+  callback(arr[0])
+}
 
 // Do not edit the code below.
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -48,6 +51,9 @@ first(names, function(firstName){
 */
 
 //Code Here
+function last(arr,callback){
+  callback(arr[arr.length - 1])
+}
 
 // Do not edit the code below.
 last(names, function(lastName){
@@ -66,6 +72,9 @@ last(names, function(lastName){
 */
 
 //Code Here
+function multiply(num1, num2, callback){
+  callback (num1 * num2)
+}
 
 // Do not edit the code below.
 multiply(4, 3, function(answer){
@@ -85,6 +94,16 @@ multiply(4, 3, function(answer){
 */
 
 //Code Here 
+var name = " "
+function contains(arr, name, callback){
+  if (arr.includes(name)){
+    callback(true)
+  }
+    else {
+      callback(false)
+    }
+  }
+
 
 // Do not edit the code below.
 contains(names, 'Colt', function(result){
@@ -106,6 +125,16 @@ contains(names, 'Colt', function(result){
 */
 
 //Code Here
+function uniq(arr, cb){
+  let uniqueArr = [];
+  for(let i = 0; i < arr.length; i++){
+    if(uniqueArr.indexOf(arr[i]) == -1){
+      uniqueArr.push(arr[i]);
+    }
+  } 
+  return cb(uniqueArr); 
+}
+
 
 // Do not edit the code below.
 uniq(names, function(uniqArr){
@@ -124,6 +153,14 @@ uniq(names, function(uniqArr){
 
 //Code Here 
 
+function each(names, callback){
+for (var i = 0; i < names.length; i++){
+  callback(names [i], i)
+}
+return names;
+}
+
+
 // Do not edit the code below.
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
@@ -139,8 +176,15 @@ each(names, function(item, indice){
   When the correct user object is found, invoke the callback with the user object as an argument.
 */
 
-// Code here
+//Code here
 
+function getUserById(users, id, cb){
+   for (let i = 0; i < users.length; i++){
+      if (users[i].id === id){
+         return cb(users[i]);
+      }
+    }
+  }
 // Do not edit the code below.
 var users = [
   {
